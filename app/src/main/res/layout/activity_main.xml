@@ -27,17 +27,17 @@
         android:textSize="40sp"
         android:textStyle="bold" />
     <EditText
-        android:id="@+id/locationEditText"
+        android:id="@+id/findSongText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/searchLyrics"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorTextIcons"
         android:hint="Enter Song to search"
         android:padding="5dp" />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/searchLyrics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
