@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+
     public static String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.findSongText) EditText mFindSongText;
     @BindView(R.id.searchLyrics) Button mSearchLyricsButton;
@@ -30,11 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View view){
-        if (view == mSearchLyricsButton){
-            Intent intent = new Intent(MainActivity.this, MusicActivity.class);
-            String song = mFindSongText.getText().toString();
-            intent.putExtra("song", song);
+            Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
+            //String song = mFindSongText.getText().toString();
+            //intent.putExtra("song", song);
             startActivity(intent);
-        }
+
     }
 }

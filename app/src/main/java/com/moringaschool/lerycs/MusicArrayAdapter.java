@@ -18,7 +18,7 @@ public class MusicArrayAdapter extends ArrayAdapter {
     @Override
     public Object getItem(int position) {
         String songName = mArtistsSong[position];
-        return  String.format("%s \nServes great: %s", songName);
+        return  String.format(songName);
     }
 
     @Override
