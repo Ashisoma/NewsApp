@@ -8,17 +8,20 @@ import androidx.annotation.Nullable;
 public class MusicArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mArtistsSong;
+    private String [] mArtistName;
 
-    public MusicArrayAdapter(Context mContext, int resource, String [] mArtistsSong){
+    public MusicArrayAdapter(Context mContext, int resource, String [] mArtistsSong, String [] mArtistName){
         super(mContext, resource);
         this.mArtistsSong = mArtistsSong;
         this.mContext = mContext;
+        this.mArtistName = mArtistName;
     }
 
     @Override
     public Object getItem(int position) {
         String songName = mArtistsSong[position];
-        return  String.format(songName);
+        String artistName = mArtistName[position];
+        return  String.format("%s \nHit Song: %s", songName, artistName);
     }
 
     @Override
