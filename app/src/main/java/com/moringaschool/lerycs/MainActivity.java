@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
             Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
-            //String song = mFindSongText.getText().toString();
-            //intent.putExtra("song", song);
+            String song = mFindSongText.getText().toString();
+            intent.putExtra("song", song);
             startActivity(intent);
 
     }

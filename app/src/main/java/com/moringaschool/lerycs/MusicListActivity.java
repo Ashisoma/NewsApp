@@ -17,6 +17,7 @@ public class MusicListActivity extends AppCompatActivity {
     TextView mSongTextView;
 
     private  String[] songName = new String[]{"hello", "jesus", "love", "better"};
+    private String [] artistName = new String[] {"Adele", "Ada", "hER", "hIM"};
 
 
     @Override
@@ -31,7 +32,7 @@ public class MusicListActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
 
         Intent intent = getIntent();
-        String song = intent.getStringExtra("song");
-        mSongTextView.setText("Here are the songs available: " + song);
+        String nameSong = intent.getStringExtra("song");
+        mSongTextView.setText("Here are the songs available: " + nameSong);
     }
 }
