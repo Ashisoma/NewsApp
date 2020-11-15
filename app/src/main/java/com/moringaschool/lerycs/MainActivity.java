@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String song = mFindSongText.getText().toString();
             intent.putExtra("song", song);
             startActivity(intent);
-        }else (view == mGetArtistsButton){
-            Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
+        }else if(view == mGetArtistsButton){
+            Intent intent = new Intent(MainActivity.this, ArtistsListActivity.class);
             startActivity(intent);
         }
     }
