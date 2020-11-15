@@ -57,7 +57,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textColor="@color/colorTextIcons"
-        android:background="@color/my_purple"
+        android:background="@color/purple_700"
         android:text="Get Artists" />
 
 

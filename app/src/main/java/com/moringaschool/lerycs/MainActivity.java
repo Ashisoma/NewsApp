@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.findSongText) EditText mFindSongText;
     @BindView(R.id.searchLyrics) Button mSearchLyricsButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
-
+    @BindView(R.id.getArtists) Button mGetArtistsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mSearchLyricsButton.setOnClickListener(this);
+        mGetArtistsButton.setOnClickListener(this);
     }
     @Override
     public void onClick(View view){
+        if(view == mSearchLyricsButton) {
             Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
             String song = mFindSongText.getText().toString();
             intent.putExtra("song", song);
             startActivity(intent);
-
+        }else (view == mGetArtistsButton){
+            Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
+            startActivity(intent);
+        }
     }
 }
