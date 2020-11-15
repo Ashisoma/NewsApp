@@ -36,15 +36,29 @@
         android:background="@color/colorTextIcons"
         android:hint="Enter Song to search"
         android:padding="5dp" />
+
     <Button
         android:id="@+id/searchLyrics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:background="@color/my_purple"
+        android:text="Search Lyrics"
+        android:textColor="@color/colorTextIcons" />
+
+    <Button
+        android:id="@+id/getArtists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:textColor="@color/colorTextIcons"
         android:background="@color/my_purple"
-        android:text="Search Lyrics" />
+        android:text="Get Artists" />
 
 
 </RelativeLayout>
