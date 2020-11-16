@@ -19,8 +19,8 @@ public class MusicListActivity extends AppCompatActivity {
     @BindView(R.id.songTextView)
     TextView mSongTextView;
 
-    private  String[] songName = new String[]{"hello", "jesus", "love", "better"};
-    private String [] artistName = new String[] {"Adele", "Ada", "hER", "hIM"};
+    private  String[] songName = new String[]{"hello", "jesus", "love", "better", "Live for you", "At the Center", "Come as you are", "we belong to you", "who am i", "Moyo wangu", "One day ata a time", "I can only imagine", "Wanna be happy"};
+    private String [] artistName = new String[] {"Adele", "Ada", "hER", "hIM", "L.M.A.M","Houghton", "Crowder", "T-sharp", "hillsong", "Patrick Kibuya", "Bill Gaither", "Mercy me", "Kirk Franklyne"};
 
 
     @Override
