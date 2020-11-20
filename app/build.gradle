@@ -16,6 +16,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'LERYCS_API_KEY', LyricsApiKey
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
