@@ -17,7 +17,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'LERYCS_API_KEY', LyricsApiKey
+        it.buildConfigField 'String', 'LERYCS_API_KEY', NewsApiKey
     }
 
 

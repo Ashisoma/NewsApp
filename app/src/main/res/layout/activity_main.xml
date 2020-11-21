@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,41 +23,40 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20sp"
         android:fontFamily="monospace"
-        android:text="Le'ryc"
+        android:text="News"
         android:textSize="40sp"
         android:textStyle="bold" />
     <EditText
         android:id="@+id/findSongText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/searchLyrics"
+        android:layout_above="@+id/searchArticle"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorTextIcons"
         android:hint="Enter Song to search"
         android:padding="5dp" />
 
-    <Button
-        android:id="@+id/searchLyrics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:background="@color/my_purple"
-        android:text="Search Lyrics"
-        android:textColor="@color/colorTextIcons" />
+<!--    <Button-->
+<!--        android:id="@+id/searchArticle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="200dp"-->
+<!--        android:background="@color/my_purple"-->
+<!--        android:text="Search Lyrics"-->
+<!--        android:textColor="@color/colorTextIcons" />-->
 
     <Button
-        android:id="@+id/getArtists"
-        android:layout_width="wrap_content"
+        android:id="@+id/searchArticle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:textColor="@color/colorTextIcons"
-        android:background="@color/purple_700"
+        android:background="@color/colorAccent"
         android:text="Get Artists" />
 
 

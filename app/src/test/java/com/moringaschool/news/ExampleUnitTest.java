@@ -1,4 +1,4 @@
-package com.moringaschool.lerycs;
+package com.moringaschool.news;
 
 import org.junit.Test;
 

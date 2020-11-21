@@ -1,4 +1,4 @@
-package com.moringaschool.lerycs.ui;
+package com.moringaschool.news.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.moringaschool.lerycs.ArtistsListActivity;
-import com.moringaschool.lerycs.R;
-import com.moringaschool.lerycs.ui.MusicListActivity;
+import com.moringaschool.news.ArtistsListActivity;
+import com.moringaschool.news.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,9 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.findSongText) EditText mFindSongText;
-    @BindView(R.id.searchLyrics) Button mSearchLyricsButton;
+    @BindView(R.id.searchArticle) Button mSearchArticleButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
-    @BindView(R.id.getArtists) Button mGetArtistsButton;
+//    @BindView(R.id.searchArticle) Button mGetArtistsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mSearchLyricsButton.setOnClickListener(this);
-        mGetArtistsButton.setOnClickListener(this);
+        mSearchArticleButton.setOnClickListener(this);
+//        mGetArtistsButton.setOnClickListener(this);
     }
     @Override
     public void onClick(View view){
-        if(view == mSearchLyricsButton) {
+        if(view == mSearchArticleButton) {
             Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
-            String song = mFindSongText.getText().toString();
-            intent.putExtra("song", song);
-            startActivity(intent);
-        }else if(view == mGetArtistsButton){
-            Intent intent = new Intent(MainActivity.this, ArtistsListActivity.class);
+            String search = mFindSongText.getText().toString();
+            intent.putExtra("q", search);
             startActivity(intent);
         }
+//        }else if(view == mGetArtistsButton){
+//            Intent intent = new Intent(MainActivity.this, ArtistsListActivity.class);
+//            startActivity(intent);
+//        }
     }
 }

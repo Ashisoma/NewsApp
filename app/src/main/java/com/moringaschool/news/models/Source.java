@@ -1,13 +1,17 @@
-package com.moringaschool.lerycs.models;
+package com.moringaschool.news.models;
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Lang {
+import org.parceler.Parcel;
 
-    @SerializedName("code")
+@Parcel
+public class Source {
+
+    @SerializedName("id")
     @Expose
-    private String code;
+    private String id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -16,26 +20,26 @@ public class Lang {
      * No args constructor for use in serialization
      * 
      */
-    public Lang() {
+    public Source() {
     }
 
     /**
      * 
-     * @param code
      * @param name
+     * @param id
      */
-    public Lang(String code, String name) {
+    public Source(String id, String name) {
         super();
-        this.code = code;
+        this.id = id;
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getId() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moringaschool.lerycs">
+    package="com.moringaschool.news">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,18 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lerycs">
-        <activity android:name=".ArtistsListActivity">
-            <meta-data
+        <activity android:name="com.moringaschool.news.ArtistsListActivity">
+            <eta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.lerycs.MainActivity"></meta-data>
+                android:value="com.moringaschool.news.ui.MainActivity"/>
         </activity>
-        <activity android:name=".ui.MusicListActivity">
+        <activity android:name="com.moringaschool.news.ui.MusicListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.lerycs.MainActivity"></meta-data>
+                android:value="com.moringaschool.news.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".MainActivity">
+            android:name="com.moringaschool.news.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
