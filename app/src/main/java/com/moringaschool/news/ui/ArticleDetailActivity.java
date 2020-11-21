@@ -1,14 +1,16 @@
-package com.moringaschool.news;
+package com.moringaschool.news.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ArtistsListActivity extends AppCompatActivity {
+import com.moringaschool.news.R;
+
+public class ArticleDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_artists_list);
+        setContentView(R.layout.activity_article_detail);
     }
 }

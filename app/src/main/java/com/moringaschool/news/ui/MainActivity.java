@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.moringaschool.news.ArtistsListActivity;
 import com.moringaschool.news.R;
 
 import butterknife.BindView;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         if(view == mSearchArticleButton) {
-            Intent intent = new Intent(MainActivity.this, MusicListActivity.class);
+            Intent intent = new Intent(MainActivity.this, ArticleListActivity.class);
             String search = mFindSongText.getText().toString();
             intent.putExtra("q", search);
             startActivity(intent);
