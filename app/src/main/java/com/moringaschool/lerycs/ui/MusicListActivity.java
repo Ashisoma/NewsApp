@@ -1,4 +1,4 @@
-package com.moringaschool.lerycs;
+package com.moringaschool.lerycs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.moringaschool.lerycs.MusicArrayAdapter;
+import com.moringaschool.lerycs.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
