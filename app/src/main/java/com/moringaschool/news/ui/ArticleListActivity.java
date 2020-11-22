@@ -1,14 +1,20 @@
 package com.moringaschool.news.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 import com.moringaschool.news.R;
+import com.moringaschool.news.adapters.ArticleListAdapter;
 import com.moringaschool.news.models.Article;
 import com.moringaschool.news.models.NewsSearchResponse;
 import com.moringaschool.news.network.NewsApi;
@@ -23,14 +29,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ArticleListActivity extends AppCompatActivity {
-    @BindView(R.id.listView)
-    ListView mListView;
-    @BindView(R.id.songTextView)
-    TextView mSongTextView;
+    public static String TAG = ArticleListActivity.class.getSimpleName();
 
-    private  String[] songName = new String[]{"hello", "jesus", "love", "better", "Live for you", "At the Center", "Come as you are", "we belong to you", "who am i", "Moyo wangu", "One day ata a time", "I can only imagine", "Wanna be happy"};
-    private String [] artistName = new String[] {"Adele", "Ada", "hER", "hIM", "L.M.A.M","Houghton", "Crowder", "T-sharp", "hillsong", "Patrick Kibuya", "Bill Gaither", "Mercy me", "Kirk Franklyne"};
 
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
+
+    private ArticleListAdapter mAdapter;
 
     public List<Article> articles;
 
@@ -53,7 +59,7 @@ public class ArticleListActivity extends AppCompatActivity {
 //        });
 
         Intent intent = getIntent();
-        String searchArticle = intent.getStringExtra("song");
+        String searchArticle = intent.getStringExtra("q");
 //        mSongTextView.setText("Here are the songs available: " + searchArticle);
 
         NewsApi client = NewsClient.getClient();
@@ -63,14 +69,48 @@ public class ArticleListActivity extends AppCompatActivity {
         call.enqueue(new Callback<NewsSearchResponse>() {
             @Override
             public void onResponse(Call<NewsSearchResponse> call, Response<NewsSearchResponse> response) {
-                articles = response.body().getArticles();
+                hideProgressBar();
 
+                if (response.isSuccessful()) {
+                    articles = response.body().getArticles();
+                    mAdapter = new ArticleListAdapter(ArticleListActivity.this, articles);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ArticleListActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+                   showArticles();
+                } else {
+                    showUnsuccessfulMessage();
+                }
             }
 
             @Override
             public void onFailure(Call<NewsSearchResponse> call, Throwable t) {
 
+                hideProgressBar();
+                Log.e(TAG, "In the onFailure method ", t);
+                Log.e(TAG,"in thowable", t);
+                showFailureMessage();
             }
         });
+    }
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showArticles() {
+        mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
     }
 }

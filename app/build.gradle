@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.moringaschool.lerycs"
+        applicationId "com.moringaschool.news"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -17,7 +17,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'LERYCS_API_KEY', NewsApiKey
+        it.buildConfigField 'String', 'NEWS_API_KEY', NewsApiKey
     }
 
 

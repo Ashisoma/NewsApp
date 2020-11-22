@@ -34,20 +34,9 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorTextIcons"
-        android:hint="Enter Song to search"
+        android:hint="ENTER NEWS TO SEARCH"
         android:padding="5dp" />
 
-<!--    <Button-->
-<!--        android:id="@+id/searchArticle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginBottom="200dp"-->
-<!--        android:background="@color/my_purple"-->
-<!--        android:text="Search Lyrics"-->
-<!--        android:textColor="@color/colorTextIcons" />-->
 
     <Button
         android:id="@+id/searchArticle"

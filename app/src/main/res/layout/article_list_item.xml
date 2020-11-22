@@ -8,7 +8,7 @@
         android:layout_width="130dp"
         android:layout_height="100dp"
         android:id="@+id/articleImageView"
-        android:src="@drawable/waffles"
+        android:src="@drawable/news"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -44,8 +44,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Published At"
-                android:id="@+id/publishedAtTextView"
+                android:text="Author"
+                android:id="@+id/articleAuthorTextView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/colorAccent"/>

@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.news.R;
 import com.moringaschool.news.models.Article;
 import com.moringaschool.news.ui.ArticleDetailActivity;
-import com.moringaschool.news.ui.ArticleListActivity;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
     private List<Article> mArticle;
     private Context mContext;
 
-    public ArticleListAdapter(List<Article> article, Context context) {
+    public ArticleListAdapter(Context context, List<Article> article) {
         this.mArticle = article;
         this.mContext = context;
     }
@@ -39,18 +41,18 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     @Override
     public void onBindViewHolder( @NonNull  ArticleListAdapter.ArticleViewHolder holder, int position) {
-
+      holder.bindArticle(mArticle.get(position));
     }
 
     @Override
     public int getItemCount() {
-        mArticle.size();
+       return mArticle.size();
     }
 
     public class ArticleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @BindView(R.id.articleImageView) ImageView mArticleImageView;
         @BindView(R.id.articleNameTextView) TextView mArticleNameTextView;
-        @BindView(R.id.publishedAtTextView) TextView mPublishedAt;
+        @BindView(R.id.articleAuthorTextView) TextView mArticleAuthorTextView;
         @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
         private Context context;
 
@@ -65,6 +67,16 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
         public void onClick(View v) {
             int itemPosition = getAdapterPosition();
             Intent intent = new Intent(mContext, ArticleDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("article", Parcels.wrap(mArticle));
+            mContext.startActivity(intent);
+        }
+
+        public void bindArticle(Article article){
+            Picasso.get().load(article.getUrlToImage()).into(mArticleImageView);
+            mArticleNameTextView.setText(article.getTitle());
+            mDescriptionTextView.setText(article.getDescription());
+            mArticleAuthorTextView.setText(article.getAuthor());
         }
     }
 
