@@ -1,4 +1,4 @@
-package com.moringaschool.news.adapters;
+        package com.moringaschool.news.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.moringaschool.news.models.Article;
+import com.moringaschool.news.ui.ArticleDetailsFragment;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class  ArticlePagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return ArticleDetailsFragment.newInstance(mArticles.get(position));
     }
 
     @Override

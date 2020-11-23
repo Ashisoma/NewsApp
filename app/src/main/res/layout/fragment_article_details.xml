@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Brunch, American"
-                android:id="@+id/cuisineTextView"
+                android:id="@+id/descriptionTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/colorSecondaryText" />
