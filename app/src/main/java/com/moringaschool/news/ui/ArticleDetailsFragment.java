@@ -27,12 +27,6 @@ import butterknife.ButterKnife;
  */
 public class ArticleDetailsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     @BindView(R.id.articleImageView) ImageView mImageLabel;
     @BindView(R.id.articleNameTextView) TextView mArticleNameLabel;
     @BindView(R.id.articleAuthorTextView) TextView mAuthorLabel;

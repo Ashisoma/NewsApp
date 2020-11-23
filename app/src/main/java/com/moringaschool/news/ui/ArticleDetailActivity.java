@@ -31,7 +31,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        mArticles = Parcels.unwrap(getIntent().getParcelableExtra("articles"));
+        mArticles = Parcels.unwrap(getIntent().getParcelableExtra("q"));
         int startPosition = getIntent().getIntExtra("position",0);
 
         adapterViewPager = new ArticlePagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mArticles);

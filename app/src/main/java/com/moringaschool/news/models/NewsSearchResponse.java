@@ -15,7 +15,7 @@ public class NewsSearchResponse {
     private String status;
     @SerializedName("totalResults")
     @Expose
-    private Long totalResults;
+    private Double totalResults;
     @SerializedName("articles")
     @Expose
     private List<Article> articles = null;
@@ -33,7 +33,7 @@ public class NewsSearchResponse {
      * @param articles
      * @param status
      */
-    public NewsSearchResponse(String status, Long totalResults, List<Article> articles) {
+    public NewsSearchResponse(String status, Double totalResults, List<Article> articles) {
         super();
         this.status = status;
         this.totalResults = totalResults;
@@ -48,11 +48,11 @@ public class NewsSearchResponse {
         this.status = status;
     }
 
-    public Long getTotalResults() {
+    public Double getTotalResults() {
         return totalResults;
     }
 
-    public void setTotalResults(Long totalResults) {
+    public void setTotalResults(Double totalResults) {
         this.totalResults = totalResults;
     }
 

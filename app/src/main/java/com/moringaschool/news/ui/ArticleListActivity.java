@@ -46,21 +46,8 @@ public class ArticleListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_article);
         ButterKnife.bind(this);
 
-//        MusicArrayAdapter adapter = new MusicArrayAdapter(this, android.R.layout.simple_list_item_1, songName, artistName);
-//
-//        mListView.setAdapter(adapter);
-//
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String song = ((TextView)view).getText().toString();
-//                Toast.makeText(ArticleListActivity.this, song, Toast.LENGTH_LONG).show();
-//            }
-//        });
-
         Intent intent = getIntent();
         String searchArticle = intent.getStringExtra("q");
-//        mSongTextView.setText("Here are the songs available: " + searchArticle);
 
         NewsApi client = NewsClient.getClient();
 
