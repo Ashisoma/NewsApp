@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lerycs">
-        <activity android:name=".ui.ArticleDetailActivity"/>
+        <activity android:name=".ui.CreateActivity"></activity>
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.ArticleDetailActivity" />
         <activity android:name=".ui.ArticleListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
