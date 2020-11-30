@@ -5,25 +5,24 @@
     android:layout_height="wrap_content">
 
 
-
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <ImageView
             android:id="@+id/articleImageView"
             android:layout_width="390dp"
-            android:layout_height="100dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:src="@drawable/news" />
 
         <TextView
             android:id="@+id/articleNameTextView"
             android:layout_width="391dp"
-            android:layout_height="35dp"
+            android:layout_height="60dp"
             android:text="Article Title "
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
@@ -32,7 +31,7 @@
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="391dp"
-            android:layout_height="45dp"
+            android:layout_height="70dp"
             android:layout_below="@+id/articleNameTextView"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -44,13 +43,13 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/articleAuthorTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Author"
-                android:id="@+id/articleAuthorTextView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
+                android:text="Author"
+                android:textColor="@color/colorAccent" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

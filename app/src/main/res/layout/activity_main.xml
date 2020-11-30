@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
+        android:src="@drawable/back" />
 
 
 
@@ -34,7 +34,7 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorTextIcons"
-        android:hint="ENTER NEWS TO SEARCH"
+        android:hint="Get trending news!"
         android:padding="5dp" />
 
 
@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorTextIcons"
         android:background="@color/colorAccent"
-        android:text="Get Artists" />
+        android:text="Get News" />
 
 
 </RelativeLayout>
