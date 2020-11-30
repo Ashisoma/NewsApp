@@ -16,23 +16,23 @@
         <ImageView
             android:id="@+id/articleImageView"
             android:layout_width="390dp"
-            android:layout_height="100dp"
+            android:layout_height="400dp"
             android:scaleType="centerCrop"
             android:src="@drawable/news" />
 
         <TextView
             android:id="@+id/articleNameTextView"
             android:layout_width="391dp"
-            android:layout_height="35dp"
+            android:layout_height="70dp"
             android:text="Article Title "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/my_purple"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="391dp"
-            android:layout_height="45dp"
+            android:layout_height="80dp"
             android:layout_below="@+id/articleNameTextView"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
