@@ -1,4 +1,4 @@
-# Le-rycsApp
+# NewsApp
 
 ## Author
 **Onesmus Okali**
