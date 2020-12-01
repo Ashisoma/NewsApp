@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -81,24 +82,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void loginWithPassword(){
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
-        if(email.equals("")){
-            mEmailEditText.setError("Please Enter Your Email");
+
+        if(TextUtils.isEmpty(email)){
+            mEmailEditText.setError("Please enter a valid email address");
             return;
         }
-        if(password.equals("")){
-            mPasswordEditText.setError("Password cannot be blank");
+        else if(TextUtils.isEmpty(password)){
+            mPasswordEditText.setError("Please enter password");
             return;
         }
+        else if(password.length()>6){
+            mPasswordEditText.setError("Please create a password containing at least 6 characters");
+            return;
+        }
+
         mAuthProgressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mAuthProgressDialog.dismiss();
-                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                if(!task.isSuccessful()){
+//                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                if (!task.isSuccessful()) {
                     Log.w(TAG, "signInWithEmail", task.getException());
-                    Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Authentication successful.", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Registration failed failed.", Toast.LENGTH_SHORT).show();
                 }
+                mAuthProgressDialog.dismiss();
             }
         });
     }

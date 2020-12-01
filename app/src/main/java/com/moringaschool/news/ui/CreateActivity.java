@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -65,7 +66,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view){
         if(view == mLoginTextView){
             Intent intent = new Intent(CreateActivity.this, LoginActivity.class);
-            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         } if (view == mCreateUserButton){
@@ -73,32 +74,68 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
     public void createNewUser(){
-        final String name = mNameEditText.getText().toString().trim();
-        final String email = mEmailEditText.getText().toString().trim();
+        String name = mNameEditText.getText().toString().trim();
+        String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
         mName = mNameEditText.getText().toString().trim();
 
-        boolean validEmail = isValidEmail(email);
-        boolean validName = isValidName(name);
-        boolean validPassword = isValidPassword(password, confirmPassword);
 
-        if (!validEmail || !validName || !validPassword) return;
+        if(TextUtils.isEmpty(name)){
+            mNameEditText.setError("Please enter your name");
+            return;
+        }
+        else if(TextUtils.isEmpty(email)){
+            mEmailEditText.setError("Please enter a valid email address");
+            return;
+        }
+        else if(TextUtils.isEmpty(password)){
+            mPasswordEditText.setError("Please enter password");
+            return;
+        }
+        else if(TextUtils.isEmpty(confirmPassword)){
+            mConfirmPasswordEditText.setError("Confirm your password");
+            return;
+        }
+        else if (!password.equals(confirmPassword)){
+            mConfirmPasswordEditText.setError("Passwords don't match");
+            return;
+        }
+        else if(password.length()>6){
+            mPasswordEditText.setError("Please create a password containing at least 6 characters");
+            return;
+        }
+        else if (!ValidEmail(email)){
+            mEmailEditText.setError("Enter a valid email address");
+            return;
+        }
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.show();
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                mAuthProgressDialog.dismiss();
 
                 if (task.isSuccessful()){
-                    Log.d(TAG, "Authentication successful");
-                    createFirebaseUserProfile(task.getResult().getUser());
+                    Toast.makeText(CreateActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+//                    createFirebaseUserProfile(task.getResult().getUser());
                 }else {
-                    Toast.makeText(CreateActivity.this,"Authentication failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateActivity.this,"Registration failed failed.", Toast.LENGTH_SHORT).show();
                 }
+                mAuthProgressDialog.dismiss();
             }
         });
+    }
+
+    private boolean ValidEmail(String email) {
+        return (TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
     private void createAuthStateListener(){
@@ -107,7 +144,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null){
-                    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CreateActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -158,7 +195,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         return true;
     }
 
-    private void createFirebaseUserProfile(final FirebaseUser user){
+    private void createFirebaseUserProfile(FirebaseUser user){
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mName)
                 .build();
