@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
@@ -101,30 +101,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mAuthProgressDialog.dismiss();
-//                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                if (!task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     Log.w(TAG, "signInWithEmail", task.getException());
                     Toast.makeText(LoginActivity.this, "Authentication successful.", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, "Registration failed failed.", Toast.LENGTH_SHORT).show();
+
                 }
                 mAuthProgressDialog.dismiss();
             }
         });
-    }
-
-    @Override
-    public void onStart(){
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mAuth.removeAuthStateListener(mAuthListener);
     }
 }

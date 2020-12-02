@@ -20,6 +20,7 @@ import com.moringaschool.news.models.NewsSearchResponse;
 import com.moringaschool.news.network.NewsApi;
 import com.moringaschool.news.network.NewsClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -38,7 +39,7 @@ public class ArticleListActivity extends AppCompatActivity {
 
     private ArticleListAdapter mAdapter;
 
-    public List<Article> articles;
+    public List<Article> articles = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

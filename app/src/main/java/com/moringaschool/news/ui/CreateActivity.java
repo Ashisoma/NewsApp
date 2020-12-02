@@ -66,7 +66,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view){
         if(view == mLoginTextView){
             Intent intent = new Intent(CreateActivity.this, LoginActivity.class);
-//            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         } if (view == mCreateUserButton){
@@ -135,7 +135,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private boolean ValidEmail(String email) {
-        return (TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
     private void createAuthStateListener(){
@@ -153,47 +153,6 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         };
     }
 
-    @Override
-    public void onStart(){
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop(){
-        super.onStop();
-        if(mAuthListener != null){
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-    private boolean isValidEmail(String email) {
-        boolean isGoodEmail = (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-        if(!isGoodEmail){
-            mEmailEditText.setError("Please enter a valid email address");
-            return false;
-        }
-        return isGoodEmail;
-    }
-
-    private boolean isValidName(String name){
-        if(name.equals("")){
-            mNameEditText.setError("Please enter your name");
-            return false;
-        }
-        return true;
-    }
-
-    private boolean isValidPassword(String password, String confirmPassword){
-        if(password.length() < 6){
-            mPasswordEditText.setError("Please create a password containing at least 6 characters");
-            return false;
-        } else if (!password.equals(confirmPassword)){
-            mPasswordEditText.setError("Passwords do not match");
-            return false;
-        }
-        return true;
-    }
 
     private void createFirebaseUserProfile(FirebaseUser user){
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()

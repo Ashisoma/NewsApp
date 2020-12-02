@@ -25,9 +25,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringaschool.news.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.MainActivity">
-
-        </activity>
+        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>

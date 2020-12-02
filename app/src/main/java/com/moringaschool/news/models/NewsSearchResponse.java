@@ -1,6 +1,7 @@
 package com.moringaschool.news.models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,7 +19,7 @@ public class NewsSearchResponse {
     private Double totalResults;
     @SerializedName("articles")
     @Expose
-    private List<Article> articles = null;
+    private List<Article> articles = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization

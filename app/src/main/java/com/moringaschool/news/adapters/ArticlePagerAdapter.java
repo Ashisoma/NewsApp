@@ -14,12 +14,12 @@ public class  ArticlePagerAdapter extends FragmentPagerAdapter {
 
     private List<Article> mArticles;
 
-    public ArticlePagerAdapter(FragmentManager fm, int behavior, List<Article> mArticles) {
+    public ArticlePagerAdapter(FragmentManager fm, int behavior, List<Article> articles) {
         super(fm, behavior);
-        this.mArticles = mArticles;
+        mArticles = articles;
     }
 
-    @NonNull
+
     @Override
     public Fragment getItem(int position) {
         return ArticleDetailsFragment.newInstance(mArticles.get(position));
