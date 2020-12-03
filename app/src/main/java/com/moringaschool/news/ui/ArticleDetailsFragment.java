@@ -38,7 +38,6 @@ public class ArticleDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static ArticleDetailsFragment newInstance(Article article) {
         ArticleDetailsFragment fragment = new ArticleDetailsFragment();
         Bundle args = new Bundle();
