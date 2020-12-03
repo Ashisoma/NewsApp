@@ -29,8 +29,8 @@
 
         <TextView
             android:id="@+id/articleNameTextView"
-            android:layout_width="399dp"
-            android:layout_height="35dp"
+            android:layout_width="385dp"
+            android:layout_height="80dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:text="Title"
@@ -56,13 +56,15 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/descriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Brunch, American"
-                android:id="@+id/descriptionTextView"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/colorSecondaryText" />
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/allerta_stencil"
+                android:text="Brunch, American"
+                android:textColor="#ffff"
+                android:textFontWeight="" />
         </RelativeLayout>
     </LinearLayout>
 
