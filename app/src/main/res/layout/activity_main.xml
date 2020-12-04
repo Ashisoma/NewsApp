@@ -13,7 +13,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/back" />
 
-
     <TextView
         android:id="@+id/appNameTextView"
         android:layout_width="400dp"
@@ -33,7 +32,7 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorTextIcons"
-        android:hint="Get trending news"
+        android:hint="Get trending news!"
         android:padding="5dp" />
 
 
@@ -45,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorTextIcons"
         android:background="@color/colorAccent"
-        android:text="GET NEWS" />
+        android:text="Get News" />
 
 
 </RelativeLayout>
