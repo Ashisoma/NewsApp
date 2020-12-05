@@ -21,6 +21,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.news.R;
 
 import butterknife.BindView;
@@ -31,6 +33,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     public static final String TAG = CreateActivity.class.getSimpleName();
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.nameEditText) EditText mNameEditText;
+    @BindView(R.id.phoneEditText) EditText mPhoneEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
@@ -39,6 +42,9 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     private String mName;
     @Override
@@ -71,6 +77,24 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
             finish();
         } if (view == mCreateUserButton){
             createNewUser();
+
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("users");
+
+            String name = mNameEditText.getText().toString().trim();
+            String email = mEmailEditText.getText().toString().trim();
+            String password = mPasswordEditText.getText().toString().trim();
+            String phone = mPhoneEditText.getText().toString().trim();
+            mName = mNameEditText.getText().toString().trim();
+
+
+            UserHelperClass helperClass = new UserHelperClass(name,email,password,phone);
+
+            reference.child(phone).setValue(helperClass);
+
+            Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(CreateActivity.this, "Your Account has Been Created" , Toast.LENGTH_SHORT).show();
         }
     }
     public void createNewUser(){

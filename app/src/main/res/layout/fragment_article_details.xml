@@ -63,8 +63,7 @@
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/allerta_stencil"
                 android:text="Brunch, American"
-                android:textColor="#ffff"
-                android:textFontWeight="" />
+                android:textColor="#ffff"/>
         </RelativeLayout>
     </LinearLayout>
 
