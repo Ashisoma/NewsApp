@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(user != null){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                     startActivity(intent);
                     finish();
                 }
@@ -72,11 +73,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == mRegisterTextView){
             Intent intent = new Intent(LoginActivity.this, CreateActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slight_out_left);
             finish();
         }
         if (view == mPasswordLoginButton){
             loginWithPassword();
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slight_out_left);
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void loginWithPassword(){
@@ -105,6 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Log.w(TAG, "signInWithEmail", task.getException());
                     Toast.makeText(LoginActivity.this, "Authentication successful.", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slight_out_left);
                     startActivity(intent);
                     finish();
 

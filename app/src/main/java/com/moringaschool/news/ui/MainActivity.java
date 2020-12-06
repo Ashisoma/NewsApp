@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
         mSearchArticleButton.setOnClickListener(this);
 //        mGetArtistsButton.setOnClickListener(this);
     }
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String search = mFindSongText.getText().toString();
             intent.putExtra("q", search);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slight_out_left);
         }
 //        }else if(view == mGetArtistsButton){
 //            Intent intent = new Intent(MainActivity.this, ArtistsListActivity.class);

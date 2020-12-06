@@ -30,7 +30,7 @@
                 android:layout_alignLeft="@id/articleImageView"
                 android:layout_alignBottom="@id/articleImageView"
                 android:gravity="bottom|left"
-                android:src="@drawable/baseline_reorder_white_24"/>
+                android:src="@drawable/baseline_reorder_24"/>
 
         </RelativeLayout>
 

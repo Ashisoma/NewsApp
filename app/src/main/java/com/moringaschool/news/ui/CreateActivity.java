@@ -178,6 +178,12 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     private void createFirebaseUserProfile(FirebaseUser user){
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mName)
