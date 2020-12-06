@@ -1,5 +1,7 @@
 package com.moringaschool.news.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,6 +33,8 @@ public class ArticleDetailsFragment extends Fragment {
     @BindView(R.id.articleNameTextView) TextView mArticleNameLabel;
     @BindView(R.id.articleAuthorTextView) TextView mAuthorLabel;
     @BindView(R.id.descriptionTextView) TextView mArticleDescriptionLabel;
+    @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
+
 
     private Article mArticle;
 
@@ -62,9 +66,18 @@ public class ArticleDetailsFragment extends Fragment {
         Picasso.get().load(mArticle.getUrlToImage()).into(mImageLabel);
         mArticleNameLabel.setText(mArticle.getTitle());
         mAuthorLabel.setText(mArticle.getAuthor());
-        mArticleDescriptionLabel.setText(mArticle.getDescription());
+        mArticleDescriptionLabel.setText(mArticle.getContent());
 
 
         return view;
+    }
+
+
+    public void onClick(View v) {
+        if (v == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mArticle.getUrl()));
+            startActivity(webIntent);
+        }
     }
 }
