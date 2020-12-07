@@ -68,7 +68,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
             int itemPosition = getAdapterPosition();
             Intent intent = new Intent(mContext, ArticleDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("article", Parcels.wrap(mArticle));
+            intent.putExtra("q", Parcels.wrap(mArticle));
             mContext.startActivity(intent);
         }
 
