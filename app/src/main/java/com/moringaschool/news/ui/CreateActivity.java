@@ -21,6 +21,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.news.R;
 
 import butterknife.BindView;
@@ -39,6 +41,9 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     private String mName;
     @Override
@@ -71,6 +76,19 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
             finish();
         } if (view == mCreateUserButton){
             createNewUser();
+
+            rootNode = FirebaseDatabase.getInstance();
+
+
+            String name = mNameEditText.getText().toString().trim();
+            String email = mEmailEditText.getText().toString().trim();
+            String password = mPasswordEditText.getText().toString().trim();
+            mName = mNameEditText.getText().toString().trim();
+
+
+            Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(CreateActivity.this, "Your Account has Been Created" , Toast.LENGTH_SHORT).show();
         }
     }
     public void createNewUser(){
