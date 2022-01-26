@@ -18,8 +18,8 @@
 
 
 ## Installing tools
-- Android Studio : https://www.googleadservices.com/pagead
-- Maven : https://maven.apache.org/install.html
+- [Android Studio](https://developer.android.com/studio)
+- [Maven](https://maven.apache.org/install.html)
 
 ## Known Bugs
 There are no known bugs in the code, the app works as expected.
